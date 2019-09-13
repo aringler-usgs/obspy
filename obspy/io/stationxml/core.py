@@ -41,13 +41,13 @@ from obspy.core.inventory import (Angle, Azimuth, ClockDrift, Dip, Distance,
 # Define some constants for writing StationXML files.
 SOFTWARE_MODULE = "ObsPy %s" % obspy.__version__
 SOFTWARE_URI = "https://www.obspy.org"
-SCHEMA_VERSION = "1.0"
+SCHEMA_VERSION = "1.1"
 
 
 def _is_stationxml(path_or_file_object):
     """
     Simple function checking if the passed object contains a valid StationXML
-    1.0 file. Returns True of False.
+    1.1 file. Returns True of False.
 
     The test is not exhaustive - it only checks the root tag but that should
     be good enough for most real world use cases. If the schema is used to
@@ -77,7 +77,7 @@ def _is_stationxml(path_or_file_object):
         except Exception:
             return False
         # Convert schema number to a float to have positive comparisons
-        # between, e.g "1" and "1.0".
+        # between, e.g "1" and "1.1".
         if float(root.attrib["schemaVersion"]) != float(SCHEMA_VERSION):
             warnings.warn("The StationXML file has version %s, ObsPy can "
                           "deal with version %s. Proceed with caution." % (
@@ -105,7 +105,7 @@ def validate_stationxml(path_or_object):
     # Get the schema location.
     schema_location = os.path.dirname(inspect.getfile(inspect.currentframe()))
     schema_location = os.path.join(schema_location, "data",
-                                   "fdsn-station-1.0.xsd")
+                                   "fdsn-station-1.1.xsd")
 
     xmlschema = etree.XMLSchema(etree.parse(schema_location))
 
@@ -834,7 +834,7 @@ def _write_stationxml(inventory, file_or_file_object, validate=False,
                "schemaLocation"] = (
             "http://www.fdsn.org/xml/station/1 "
             "http://www.fdsn.org/xml/station/fdsn-station+"
-            "availability-1.0.xsd")
+            "availability-1.1.xsd")
         if "xsi" in nsmap:
             msg = ("Custom namespace mappings do not allow redefinition of "
                    "StationXML availability namespace (key `xsi`). Use other "

@@ -16,7 +16,9 @@
     availabilty during the selected window.
 	
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fsx="http://www.fdsn.org/xml/station/1" targetNamespace="http://www.fdsn.org/xml/station/1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fsx="http://www.fdsn.org/xml/station/1"
+    targetNamespace="http://www.fdsn.org/xml/station/1" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="1.0">
 
     <!-- Using fdsn-station-#.xsd as a base, this schema adds data availability to the BaseNodeType -->
 
@@ -26,7 +28,8 @@
             <xs:complexContent>
                 <xs:extension base="fsx:BaseNodeType">
                     <xs:sequence>
-                        <xs:element name="DataAvailability" type="fsx:DataAvailabilityType" minOccurs="0">
+                        <xs:element name="DataAvailability" type="fsx:DataAvailabilityType"
+                            minOccurs="0">
                             <xs:annotation>
                                 <xs:documentation>A description of time series data availability.
                                     This information should be considered transient and is primarily
@@ -85,7 +88,8 @@
         </xs:annotation>
         <xs:sequence>
             <xs:element name="Extent" type="fsx:DataAvailabilityExtentType" minOccurs="0"/>
-            <xs:element name="Span" type="fsx:DataAvailabilitySpanType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Span" type="fsx:DataAvailabilitySpanType" minOccurs="0"
+                maxOccurs="unbounded"/>
             <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:anyAttribute namespace="##other" processContents="lax"/>

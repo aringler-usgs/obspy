@@ -85,7 +85,7 @@ class StationXMLTestCase(unittest.TestCase):
         # Check some negatives.
         not_stationxmls = [
             "Variations-FDSNSXML-SEED.txt",
-            "fdsn-station+availability-1.0.xsd", "fdsn-station-1.0.xsd"]
+            "fdsn-station+availability-1.1.xsd", "fdsn-station-1.1.xsd"]
         not_stationxmls = [
             os.path.join(self.data_dir, os.path.pardir,
                          os.path.pardir, "data", _i) for _i in not_stationxmls]
@@ -201,7 +201,6 @@ class StationXMLTestCase(unittest.TestCase):
         # Write it again. Also validate it to get more confidence. Suppress the
         # writing of the ObsPy related tags to ease testing.
         file_buffer = io.BytesIO()
-
         inv.write(file_buffer, format="StationXML", validate=True,
                   _suppress_module_tags=True)
         file_buffer.seek(0, 0)
@@ -489,7 +488,6 @@ class StationXMLTestCase(unittest.TestCase):
 
         self.assertEqual(len(station.operators), 2)
         self.assertEqual(station.operators[0].agencies[0], "Agency 1")
-        self.assertEqual(station.operators[0].agencies[1], "Agency 2")
         self.assertEqual(station.operators[0].contacts[0].names[0],
                          "This person")
         self.assertEqual(station.operators[0].contacts[0].names[1],
