@@ -14,13 +14,14 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            conda create -n test-env
-            source activate test-env
-            conda install -y flake8 pep8-naming
+            /opt/conda/bin/conda install -y flake8 pep8-naming
 
       - run:
           name: run linting
           command: |
-            source activate test-env
-            flake8 --version
-            flake8 --verbose --ignore=E402,$(python -c 'import pycodestyle; print(pycodestyle.DEFAULT_IGNORE)') --exclude=__init__.py obspy
+            /opt/conda/bin/flake8 --version
+            # NOTE: Keep consistent between..
+            #   - obspy/core/tests/test_code_formatting.py FLAKE8_IGNORE_CODES
+            #   - .circleci/config.yml --ignore
+            # --hang-closing allows valid indented closing brackets, see https://github.com/PyCQA/pycodestyle/issues/103#issuecomment-17366719
+            /opt/conda/bin/flake8 --verbose --hang-closing --ignore=E402,E504,W504,E133,$(python -c 'import pycodestyle; print(pycodestyle.DEFAULT_IGNORE)'),$(python -c 'from flake8.api import legacy as flake8; print(",".join(flake8.get_style_guide().options.__dict__["ignore"]))') --exclude=__init__.py obspy
