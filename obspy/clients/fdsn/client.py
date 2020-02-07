@@ -442,7 +442,7 @@ class Client(object):
         :type latitude: float, optional
         :param latitude: Specify the latitude to be used for a radius search.
         :type longitude: float, optional
-        :param longitude: Specify the longitude to the used for a radius
+        :param longitude: Specify the longitude to be used for a radius
             search.
         :type minradius: float, optional
         :param minradius: Limit to events within the specified minimum number
@@ -668,7 +668,7 @@ class Client(object):
         :type latitude: float
         :param latitude: Specify the latitude to be used for a radius search.
         :type longitude: float
-        :param longitude: Specify the longitude to the used for a radius
+        :param longitude: Specify the longitude to be used for a radius
             search.
         :type minradius: float
         :param minradius: Limit results to stations within the specified
@@ -1737,6 +1737,10 @@ def raise_on_error(code, data):
         msg = ("The request URI is too large. Please contact the ObsPy "
                "developers.", server_info)
         raise NotImplementedError(msg)
+    elif code == 429:
+        msg = ("Sent too many requests in a given amount of time ('rate "
+               "limiting'). Wait before making a new request.", server_info)
+        raise FDSNException(msg, server_info)
     elif code == 500:
         raise FDSNException("Service responds: Internal server error",
                             server_info)
