@@ -22,6 +22,7 @@ Crawford, Wayne
 Danecek, Peter
 van Driel, Martin
 Egdorf, Sven
+Ely, Geoffrey
 Engels, Fabian
 Ermert, Laura
 Eulenfeld, Tom
@@ -31,9 +32,11 @@ Fee, Jeremy
 Grellier, Clément
 Grunberg, Marc
 Hagerty, Mike
+Halpaap, Felix
 Hammer, Conny
 Heimann, Sebastian
 Heiniger, Lukas
+Helffrich, George
 Hope, Gaute
 Igel, Heiner
 Inza, Adolfo
@@ -66,6 +69,7 @@ Michelini, Alberto
 Miller, Nathaniel C.
 Morgenstern, Bernhard
 Murray-Bergquist, Louisa
+Nesbitt, Ian M.
 Nof, Ran Novitsky
 Panning, Mark P.
 Rapagnani, Giovanni

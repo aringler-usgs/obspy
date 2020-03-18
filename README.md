@@ -11,7 +11,7 @@
 [![LGPLv3](https://www.gnu.org/graphics/lgplv3-88x31.png)](https://www.gnu.org/licenses/lgpl.html)
 
 [![PyPI Version](https://img.shields.io/pypi/v/obspy.svg)](https://pypi.python.org/pypi/obspy)
-[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.1040770.svg)](http://dx.doi.org/10.5281/zenodo.1040770)
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.3706479.svg)](http://dx.doi.org/10.5281/zenodo.3706479)
 [![Depsy](http://depsy.org/api/package/pypi/obspy/badge.svg)](http://depsy.org/package/python/obspy)
 ![Conda](https://img.shields.io/conda/dn/conda-forge/obspy?label=conda%20downloads)
 
@@ -27,15 +27,33 @@ ObsPy is licensed under the GNU Lesser General Public License (LGPL) v3.0.
 
 A one-hour introduction to ObsPy is [available at YouTube](https://www.youtube.com/watch?v=kFwdjfiK4gk).
 
-[Read more](https://github.com/obspy/obspy/wiki)
+#### [Read more in our GitHub wiki](https://github.com/obspy/obspy/wiki)
 
 ### Installation
 
 Installation instructions can be found in the [wiki](https://github.com/obspy/obspy/wiki#installation).
 
-### Changelog
+### Getting started
 
-The **detailed changelog** is available [here](CHANGELOG.txt).
+Read about how to get started in the [wiki](https://github.com/obspy/obspy/wiki#getting-started) and in our [**Tutorial** section in the documentation](http://docs.obspy.org/tutorial/).
+
+ObsPy Tutorial notebooks -- and much more on specific seismology topics -- can also be found on [**Seismo-Live**](http://seismo-live.org/), both as a static preview and as interactively runnable version.
+
+[![Link to Seismo-Live](https://user-images.githubusercontent.com/1842780/75337134-b4310a80-588c-11ea-8ed2-dbabdedaedfc.png)](http://seismo-live.org/)
+
+```python
+from obspy import read
+st = read()  # load example seismogram
+st.filter(type='highpass', freq=3.0)
+st = st.select(component='Z')
+st.plot()
+```
+
+![Example waveform Plot](https://user-images.githubusercontent.com/1842780/75334711-9d88b480-5888-11ea-8bc8-0bfe7021d79e.png)
+
+### Documentation and Changelog
+
+The **detailed changelog** is available [here](CHANGELOG.txt), our docs can be found at [docs.obspy.org](http://docs.obspy.org/).
 
 ### Contributing
 
